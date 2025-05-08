@@ -15,7 +15,7 @@ export interface Filters {
   dynasty: string;
   type: string;
   material: string;
-  source: string; // Represents region/source
+  source: string; 
 }
 
 interface FilterPanelProps {
@@ -25,7 +25,7 @@ interface FilterPanelProps {
     dynasties: string[];
     types: string[];
     materials: string[];
-    sources: string[]; // For region/source
+    sources: string[]; 
   };
   onResetFilters: () => void;
 }
@@ -44,16 +44,16 @@ export default function FilterPanel({
     <div className="p-4 bg-card rounded-lg shadow mb-6">
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 items-end">
         <div>
-          <Label htmlFor="dynasty-filter">Dynasty</Label>
+          <Label htmlFor="dynasty-filter">朝代</Label>
           <Select
             value={filters.dynasty || 'all'}
             onValueChange={(value) => handleSelectChange('dynasty', value)}
           >
             <SelectTrigger id="dynasty-filter">
-              <SelectValue placeholder="Select Dynasty" />
+              <SelectValue placeholder="选择朝代" />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="all">All Dynasties</SelectItem>
+              <SelectItem value="all">所有朝代</SelectItem>
               {distinctValues.dynasties.map((dynasty) => (
                 <SelectItem key={dynasty} value={dynasty}>
                   {dynasty}
@@ -63,16 +63,16 @@ export default function FilterPanel({
           </Select>
         </div>
         <div>
-          <Label htmlFor="type-filter">Component Type</Label>
+          <Label htmlFor="type-filter">构件类型</Label>
           <Select
             value={filters.type || 'all'}
             onValueChange={(value) => handleSelectChange('type', value)}
           >
             <SelectTrigger id="type-filter">
-              <SelectValue placeholder="Select Type" />
+              <SelectValue placeholder="选择类型" />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="all">All Types</SelectItem>
+              <SelectItem value="all">所有类型</SelectItem>
               {distinctValues.types.map((type) => (
                 <SelectItem key={type} value={type}>
                   {type}
@@ -82,16 +82,16 @@ export default function FilterPanel({
           </Select>
         </div>
         <div>
-          <Label htmlFor="material-filter">Material</Label>
+          <Label htmlFor="material-filter">材质</Label>
           <Select
             value={filters.material || 'all'}
             onValueChange={(value) => handleSelectChange('material', value)}
           >
             <SelectTrigger id="material-filter">
-              <SelectValue placeholder="Select Material" />
+              <SelectValue placeholder="选择材质" />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="all">All Materials</SelectItem>
+              <SelectItem value="all">所有材质</SelectItem>
               {distinctValues.materials.map((material) => (
                 <SelectItem key={material} value={material}>
                   {material}
@@ -101,16 +101,16 @@ export default function FilterPanel({
           </Select>
         </div>
         <div>
-          <Label htmlFor="source-filter">Region/Source</Label>
+          <Label htmlFor="source-filter">地区/来源</Label>
           <Select
             value={filters.source || 'all'}
             onValueChange={(value) => handleSelectChange('source', value)}
           >
             <SelectTrigger id="source-filter">
-              <SelectValue placeholder="Select Region/Source" />
+              <SelectValue placeholder="选择地区/来源" />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="all">All Regions/Sources</SelectItem>
+              <SelectItem value="all">所有地区/来源</SelectItem>
               {distinctValues.sources.map((source) => (
                 <SelectItem key={source} value={source}>
                   {source}
@@ -120,7 +120,7 @@ export default function FilterPanel({
           </Select>
         </div>
         <Button onClick={onResetFilters} variant="outline" className="w-full lg:w-auto">
-          <FilterX className="mr-2 h-4 w-4" /> Reset Filters
+          <FilterX className="mr-2 h-4 w-4" /> 重置筛选
         </Button>
       </div>
     </div>

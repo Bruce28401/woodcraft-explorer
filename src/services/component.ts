@@ -44,90 +44,90 @@ const mockComponents: Component[] = [
   {
     component_id: '1',
     name: '斗拱 (Dou Gong)',
-    dynasty: 'Tang Dynasty',
-    style: '雄大简练 (Majestic & Concise)',
-    material: 'Wood (Pine)',
-    function: 'Support roof eaves, Structural',
-    source: 'Shanxi Province',
+    dynasty: '唐朝',
+    style: '雄大简练',
+    material: '木材 (松木)',
+    function: '支撑屋檐，结构件',
+    source: '山西省',
     previewImageUrl: 'https://picsum.photos/seed/dougong/300/200',
-    type: 'Bracket Set'
+    type: '斗拱组合'
   },
   {
     component_id: '2',
     name: '梁 (Liang)',
-    dynasty: 'Ming Dynasty',
-    style: '规整华丽 (Orderly & Ornate)',
-    material: 'Wood (Nanmu)',
-    function: 'Support roof, Span opening',
-    source: 'Beijing Imperial Palace',
+    dynasty: '明朝',
+    style: '规整华丽',
+    material: '木材 (楠木)',
+    function: '支撑屋顶，跨越开口',
+    source: '北京故宫',
     previewImageUrl: 'https://picsum.photos/seed/liang/300/200',
-    type: 'Beam'
+    type: '梁'
   },
   {
     component_id: '3',
     name: '雀替 (Que Ti)',
-    dynasty: 'Qing Dynasty',
-    style: '繁复精细 (Complex & Delicate)',
-    material: 'Wood (Elm)',
-    function: 'Strengthen connection, Decorative',
-    source: 'Suzhou Gardens',
+    dynasty: '清朝',
+    style: '繁复精细',
+    material: '木材 (榆木)',
+    function: '加强连接，装饰',
+    source: '苏州园林',
     previewImageUrl: 'https://picsum.photos/seed/queti/300/200',
-    type: 'Angle Brace'
+    type: '雀替'
   },
   {
     component_id: '4',
     name: '柱础 (Zhu Chu)',
-    dynasty: 'Song Dynasty',
-    style: '古朴厚重 (Simple & Massive)',
-    material: 'Stone (Granite)', // Changed material for variety
-    function: 'Support column, Prevent decay',
-    source: 'Fujian Tulou',
+    dynasty: '宋朝',
+    style: '古朴厚重',
+    material: '石材 (花岗岩)',
+    function: '支撑柱子，防止腐朽',
+    source: '福建土楼',
     previewImageUrl: 'https://picsum.photos/seed/zhuchu/300/200',
-    type: 'Plinth'
+    type: '柱础'
   },
   {
     component_id: '5',
     name: '椽子 (Chuan Zi)',
-    dynasty: 'Han Dynasty',
-    style: '古朴实用 (Archaic & Practical)',
-    material: 'Wood (Poplar)',
-    function: 'Support roof tiles',
-    source: 'Rural Dwellings',
+    dynasty: '汉朝',
+    style: '古朴实用',
+    material: '木材 (杨木)',
+    function: '支撑屋瓦',
+    source: '乡村住宅',
     previewImageUrl: 'https://picsum.photos/seed/chuanzi/300/200',
-    type: 'Rafter'
+    type: '椽子'
   },
   {
     component_id: '6',
     name: '月梁 (Yue Liang)',
-    dynasty: 'Song Dynasty',
-    style: '曲线优美 (Graceful Curve)',
-    material: 'Wood (Camphor)',
-    function: 'Support roof, Aesthetic',
-    source: 'Jiangnan Region',
+    dynasty: '宋朝',
+    style: '曲线优美',
+    material: '木材 (樟木)',
+    function: '支撑屋顶，美观',
+    source: '江南地区',
     previewImageUrl: 'https://picsum.photos/seed/yueliang/300/200',
-    type: 'Curved Beam'
+    type: '月梁'
   },
   {
     component_id: '7',
     name: '昂 (Ang)',
-    dynasty: 'Tang Dynasty',
-    style: '出跳深远 (Deep Projection)',
-    material: 'Wood (Pine)',
-    function: 'Leverage in Dou Gong',
-    source: 'Major Temples',
+    dynasty: '唐朝',
+    style: '出跳深远',
+    material: '木材 (松木)',
+    function: '斗拱中的杠杆件',
+    source: '主要寺庙',
     previewImageUrl: 'https://picsum.photos/seed/ang/300/200',
-    type: 'Lever Arm (Dou Gong)'
+    type: '昂 (斗拱)'
   },
   {
     component_id: '8',
     name: '挂落 (Gua Luo)',
-    dynasty: 'Qing Dynasty',
-    style: '玲珑剔透 (Exquisite & Translucent)',
-    material: 'Wood (Boxwood)',
-    function: 'Decorative, Define space',
-    source: 'Residential Courtyards',
+    dynasty: '清朝',
+    style: '玲珑剔透',
+    material: '木材 (黄杨木)',
+    function: '装饰，界定空间',
+    source: '民居庭院',
     previewImageUrl: 'https://picsum.photos/seed/gualuo/300/200',
-    type: 'Frieze Ornament'
+    type: '挂落'
   },
 ];
 
@@ -182,29 +182,29 @@ export async function getGeometryParams(componentId: string): Promise<GeometryPa
   if (!component) return null;
 
   // Mock data based on component type
-  if (component.type === 'Bracket Set') {
+  if (component.type === '斗拱组合') {
     return {
       component_id: componentId,
-      dimensions: 'Varies, typical assembly 60cm x 40cm x 50cm',
-      structureDescription: 'Complex interlocking system of dou (blocks) and gong (arms). The number of tiers and complexity varies by rank and period.',
-      tenonType: '榫卯结合 (Mortise and Tenon), 穿插卯 (Interpenetrating Tenon)',
+      dimensions: '尺寸不定，典型组合 60厘米 x 40厘米 x 50厘米',
+      structureDescription: '复杂的斗（块）和拱（臂）的联锁系统。层数和复杂性因等级和时期而异。',
+      tenonType: '榫卯结合，穿插卯',
       explodedViewUrl: 'https://picsum.photos/seed/dougong_exploded/600/400',
     };
   }
-  if (component.type === 'Beam') {
+  if (component.type === '梁') {
      return {
       component_id: componentId,
-      dimensions: 'Length up to 10m, Cross-section 30cm x 40cm',
-      structureDescription: 'Main horizontal load-bearing member, often carved or painted. Can be straight or slightly curved (月梁).',
-      tenonType: '燕尾榫 (Dovetail Tenon) for connections to columns',
+      dimensions: '长度可达10米，横截面30厘米 x 40厘米',
+      structureDescription: '主要水平承重构件，常有雕刻或彩绘。可以是直梁或微弯的月梁。',
+      tenonType: '燕尾榫（用于与柱连接）',
       explodedViewUrl: 'https://picsum.photos/seed/liang_exploded/600/400',
     };
   }
   return { // Default mock
     component_id: componentId,
-    dimensions: 'Approx. 30cm x 20cm x 15cm',
-    structureDescription: 'Detailed structural composition of the component, highlighting key joints and assembly methods.',
-    tenonType: '常见榫卯 (Common Mortise and Tenon)',
+    dimensions: '约 30厘米 x 20厘米 x 15厘米',
+    structureDescription: '构件的详细结构组成，突出关键节点和组装方法。',
+    tenonType: '常见榫卯',
     explodedViewUrl: `https://picsum.photos/seed/${componentId}_exploded/600/400`,
   };
 }
@@ -227,16 +227,14 @@ export async function getDigitalModels(componentId: string): Promise<DigitalMode
   const component = mockComponents.find(c => c.component_id === componentId);
   if (!component) return null;
 
-  // For demonstration, only component_id '1' (Dou Gong) has a specific model.
-  // Replace with actual model URLs if available.
   const modelFile = componentId === '1' ? '/models/dougong_sample.gltf' : '/models/default_component.gltf';
   
   return {
     component_id: componentId,
-    modelUrl: modelFile, // Placeholder for actual glTF model path
+    modelUrl: modelFile, 
     previewImageUrl: `https://picsum.photos/seed/${componentId}_model_preview/400/300`,
-    modelingMethod: 'Photogrammetry and CAD modeling',
-    copyrightInfo: 'CC BY-NC 4.0, Research Institute of Architectural Heritage',
+    modelingMethod: '摄影测量与CAD建模',
+    copyrightInfo: 'CC BY-NC 4.0, 建筑遗产研究院',
   };
 }
 
@@ -258,20 +256,20 @@ export async function getSemanticTags(componentId: string): Promise<SemanticTags
   if (!component) return null;
 
   const tagsMap: Record<string, string[]> = {
-    'Bracket Set': ['斗拱', '榫卯', '承重', '挑檐', '唐代风格'],
-    'Beam': ['梁', '主梁', '承重结构', '木材', '明代建筑'],
-    'Angle Brace': ['雀替', '加固', '装饰', '清代园林', '柱梁连接'],
-    'Plinth': ['柱础', '石材', '防潮', '宋代遗存', '柱子基础'],
-    'Rafter': ['椽子', '屋顶', '瓦片支撑', '汉代民居', '小料'],
-    'Curved Beam': ['月梁', '弧形梁', '江南建筑', '美学', '宋式结构'],
-    'Lever Arm (Dou Gong)': ['昂', '杠杆', '斗拱组成', '唐代寺庙', '结构力学'],
-    'Frieze Ornament': ['挂落', '檐下装饰', '木雕', '清代民宅', '通风采光'],
-  }
+    '斗拱组合': ['斗拱', '榫卯', '承重', '挑檐', '唐代风格'],
+    '梁': ['梁', '主梁', '承重结构', '木材', '明代建筑'],
+    '雀替': ['雀替', '加固', '装饰', '清代园林', '柱梁连接'],
+    '柱础': ['柱础', '石材', '防潮', '宋代遗存', '柱子基础'],
+    '椽子': ['椽子', '屋顶', '瓦片支撑', '汉代民居', '小料'],
+    '月梁': ['月梁', '弧形梁', '江南建筑', '美学', '宋式结构'],
+    '昂 (斗拱)': ['昂', '杠杆', '斗拱组成', '唐代寺庙', '结构力学'],
+    '挂落': ['挂落', '檐下装饰', '木雕', '清代民宅', '通风采光'],
+  };
 
   return {
     component_id: componentId,
-    ifcClassification: `IfcBuildingElementProxy (Type: ${component.type.replace(/\s+/g, '_')})`,
-    semanticStructure: 'JSON-LD (Linked Data)',
+    ifcClassification: `IfcBuildingElementProxy (类型: ${component.type.replace(/\s+/g, '_')})`,
+    semanticStructure: 'JSON-LD (链接数据)',
     aiTags: tagsMap[component.type] || ['古建筑', '木构件', component.dynasty, component.material],
   };
 }
@@ -305,8 +303,8 @@ export async function getVisualAssets(componentId: string): Promise<VisualAssets
       `https://picsum.photos/seed/${componentId}_drawing_section/800/600`,
     ],
     structuralDiagrams: [
-      { url: `https://picsum.photos/seed/${componentId}_struct_diag1/800/600`, type: 'Load Path Analysis', description: 'Diagram showing load distribution through the component.' },
-      { url: `https://picsum.photos/seed/${componentId}_struct_diag2/800/600`, type: 'Joint Detail', description: 'Close-up of tenon connections.' },
+      { url: `https://picsum.photos/seed/${componentId}_struct_diag1/800/600`, type: '荷载路径分析', description: '显示构件荷载分布的图表。' },
+      { url: `https://picsum.photos/seed/${componentId}_struct_diag2/800/600`, type: '节点详图', description: '榫卯连接的特写。' },
     ],
   };
 }
@@ -330,9 +328,9 @@ export async function getAccessPolicies(componentId: string): Promise<AccessPoli
 
   return {
     component_id: componentId,
-    dataOpenStatus: 'Open for non-commercial research and education purposes.',
-    citationFormat: `WoodCraft Explorer. (Year). "${component.name}". Component ID: ${componentId}. Retrieved from [URL]`,
-    uploaderInfo: 'Digital Heritage Lab, Tsinghua University.',
+    dataOpenStatus: '开放用于非商业研究和教育目的。',
+    citationFormat: `木构浏览器。(年份). "${component.name}". 构件ID: ${componentId}. 检索自 [URL]`,
+    uploaderInfo: '清华大学数字遗产实验室。',
   };
 }
 
@@ -342,7 +340,7 @@ export async function getDistinctFilterValues(): Promise<{ dynasties: string[], 
   const dynasties = Array.from(new Set(mockComponents.map(c => c.dynasty))).sort();
   const types = Array.from(new Set(mockComponents.map(c => c.type))).sort();
   const materials = Array.from(new Set(mockComponents.map(c => c.material))).sort();
-  const sources = Array.from(new Set(mockComponents.map(c => c.source))).sort(); // 'source' is used for region here
+  const sources = Array.from(new Set(mockComponents.map(c => c.source))).sort(); 
   return { dynasties, types, materials, sources };
 }
 

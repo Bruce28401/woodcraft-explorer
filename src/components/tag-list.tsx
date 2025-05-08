@@ -6,7 +6,7 @@ interface TagListProps {
 
 export default function TagList({ tags }: TagListProps) {
   if (!tags || tags.length === 0) {
-    return <p className="text-sm text-muted-foreground">No tags available.</p>;
+    return <p className="text-sm text-muted-foreground">暂无标签。</p>;
   }
 
   return (

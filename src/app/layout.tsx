@@ -15,8 +15,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'WoodCraft Explorer',
-  description: 'A database of traditional Chinese architectural wood components.',
+  title: '木构浏览器',
+  description: '一个传统中国木构建筑构件数据库。',
 };
 
 export default function RootLayout({
@@ -25,7 +25,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="zh-CN">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-background text-foreground`}>
         <AppHeader />
         <main className="container mx-auto px-4 py-8">

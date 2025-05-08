@@ -26,7 +26,7 @@ const ModelViewer: React.FC<ModelViewerProps> = ({ modelUrl }) => {
     let animationFrameId: number;
 
     const scene = new THREE.Scene();
-    scene.background = new THREE.Color(0xf0f0f0); // Light gray background
+    scene.background = new THREE.Color(0xf0f0f0); 
 
     const camera = new THREE.PerspectiveCamera(
       75,
@@ -34,7 +34,7 @@ const ModelViewer: React.FC<ModelViewerProps> = ({ modelUrl }) => {
       0.1,
       1000
     );
-    camera.position.set(2, 2, 3); // Adjusted camera position
+    camera.position.set(2, 2, 3); 
 
     const renderer = new THREE.WebGLRenderer({ antialias: true });
     renderer.setSize(mountRef.current.clientWidth, mountRef.current.clientHeight);
@@ -46,14 +46,14 @@ const ModelViewer: React.FC<ModelViewerProps> = ({ modelUrl }) => {
     controls.dampingFactor = 0.05;
     controls.screenSpacePanning = false;
     controls.minDistance = 1;
-    controls.maxDistance = 10; // Adjusted max distance
-    controls.target.set(0, 0.5, 0); // Center target on typical model height
+    controls.maxDistance = 10; 
+    controls.target.set(0, 0.5, 0); 
 
-    // Lighting
-    const ambientLight = new THREE.AmbientLight(0xffffff, 0.8); // Increased ambient light
+    
+    const ambientLight = new THREE.AmbientLight(0xffffff, 0.8); 
     scene.add(ambientLight);
 
-    const directionalLight = new THREE.DirectionalLight(0xffffff, 1); // Stronger directional light
+    const directionalLight = new THREE.DirectionalLight(0xffffff, 1); 
     directionalLight.position.set(5, 10, 7.5);
     scene.add(directionalLight);
     
@@ -68,7 +68,7 @@ const ModelViewer: React.FC<ModelViewerProps> = ({ modelUrl }) => {
       (gltf) => {
         const model = gltf.scene;
         
-        // Scale and center the model
+        
         const box = new THREE.Box3().setFromObject(model);
         const size = box.getSize(new THREE.Vector3());
         const center = box.getCenter(new THREE.Vector3());
@@ -78,16 +78,16 @@ const ModelViewer: React.FC<ModelViewerProps> = ({ modelUrl }) => {
         model.position.z += (model.position.z - center.z);
 
         const maxDim = Math.max(size.x, size.y, size.z);
-        const scale = 2.0 / maxDim; // Scale to fit in a 2x2x2 box
+        const scale = 2.0 / maxDim; 
         model.scale.set(scale, scale, scale);
         
         scene.add(model);
         setIsLoading(false);
       },
-      undefined, // onProgress callback (not used here)
+      undefined, 
       (error) => {
-        console.error('Error loading GLTF model:', error);
-        setError(`Failed to load 3D model. Path: ${modelUrl}. Error: ${error.message}`);
+        console.error('加载GLTF模型出错:', error);
+        setError(`加载3D模型失败。路径: ${modelUrl}。错误: ${error.message}`);
         setIsLoading(false);
       }
     );
@@ -108,7 +108,7 @@ const ModelViewer: React.FC<ModelViewerProps> = ({ modelUrl }) => {
     };
     window.addEventListener('resize', handleResize);
 
-    // Cleanup
+    
     return () => {
       window.removeEventListener('resize', handleResize);
       cancelAnimationFrame(animationFrameId);
@@ -116,7 +116,7 @@ const ModelViewer: React.FC<ModelViewerProps> = ({ modelUrl }) => {
         mountRef.current.removeChild(renderer.domElement);
       }
       renderer.dispose();
-      // Dispose geometries, materials, textures if necessary
+      
       scene.traverse(object => {
         if (object instanceof THREE.Mesh) {
           if (object.geometry) object.geometry.dispose();
@@ -137,16 +137,16 @@ const ModelViewer: React.FC<ModelViewerProps> = ({ modelUrl }) => {
       {isLoading && (
         <div className="absolute inset-0 flex items-center justify-center bg-muted/50">
           <Skeleton className="w-full h-full" />
-           <p className="absolute text-foreground">Loading 3D model...</p>
+           <p className="absolute text-foreground">正在加载3D模型...</p>
         </div>
       )}
       {error && !isLoading && (
          <Alert variant="destructive" className="h-full flex flex-col items-center justify-center">
           <AlertTriangle className="h-8 w-8 mb-2" />
-          <AlertTitle>Error Loading Model</AlertTitle>
+          <AlertTitle>加载模型出错</AlertTitle>
           <AlertDescription className="text-center">
-            Could not load the 3D model. <br />
-            Details: {error.length > 100 ? error.substring(0,100) + "..." : error}
+            无法加载3D模型。<br />
+            详情: {error.length > 100 ? error.substring(0,100) + "..." : error}
           </AlertDescription>
         </Alert>
       )}

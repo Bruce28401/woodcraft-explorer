@@ -28,10 +28,10 @@ export default function SearchBar({ onSearch, initialQuery = '' }: SearchBarProp
         type="text"
         value={query}
         onChange={handleInputChange}
-        placeholder="Search by name, dynasty, type, material..."
+        placeholder="按名称、朝代、类型、材质搜索..."
         className="flex-grow"
       />
-      <Button type="submit" aria-label="Search">
+      <Button type="submit" aria-label="搜索">
         <Search className="h-5 w-5" />
       </Button>
     </form>

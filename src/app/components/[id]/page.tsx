@@ -1,3 +1,4 @@
+
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
@@ -22,7 +23,7 @@ import { Button } from '@/components/ui/button';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Table, TableBody, TableCell, TableRow } from "@/components/ui/table";
-import { Download, Image as ImageIcon, Architecture, Info, TagsIcon, Landmark, SearchCode, DatabaseZap } from 'lucide-react';
+import { Download, Image as ImageIcon, SquareKanban, Info, Tags, Landmark } from 'lucide-react';
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 
 type ComponentDetailPageProps = {
@@ -114,10 +115,10 @@ export default async function ComponentDetailPage({ params }: ComponentDetailPag
 
       <Tabs defaultValue="details" className="w-full">
         <TabsList className="grid w-full grid-cols-2 md:grid-cols-3 lg:grid-cols-5 mb-6">
-          <TabsTrigger value="details"><Architecture className="mr-2 h-4 w-4" />Geometry</TabsTrigger>
+          <TabsTrigger value="details"><SquareKanban className="mr-2 h-4 w-4" />Geometry</TabsTrigger>
           <TabsTrigger value="model"><Landmark className="mr-2 h-4 w-4" />3D Model</TabsTrigger>
           <TabsTrigger value="visuals"><ImageIcon className="mr-2 h-4 w-4" />Visuals</TabsTrigger>
-          <TabsTrigger value="semantic"><TagsIcon className="mr-2 h-4 w-4" />Semantics</TabsTrigger>
+          <TabsTrigger value="semantic"><Tags className="mr-2 h-4 w-4" />Semantics</TabsTrigger>
           <TabsTrigger value="access"><Info className="mr-2 h-4 w-4" />Access</TabsTrigger>
         </TabsList>
 
@@ -300,3 +301,4 @@ export default async function ComponentDetailPage({ params }: ComponentDetailPag
     </div>
   );
 }
+

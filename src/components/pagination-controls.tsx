@@ -1,5 +1,6 @@
 'use client';
 
+import { usePathname } from 'next/navigation';
 import { Button } from "@/components/ui/button";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
@@ -17,6 +18,9 @@ export default function PaginationControls({
   if (totalPages <= 1) {
     return null;
   }
+
+  const pathname = usePathname();
+  const locale = pathname.split('/')[1];
 
   return (
     <div className="flex justify-center items-center gap-2 mt-8">

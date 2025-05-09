@@ -1,5 +1,8 @@
+"use client";
+
 import Link from 'next/link';
 import Image from 'next/image';
+import { usePathname } from 'next/navigation';
 import type { Component as ComponentType } from '@/services/component';
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -9,8 +12,10 @@ interface ComponentCardProps {
 }
 
 export default function ComponentCard({ component }: ComponentCardProps) {
+  const pathname = usePathname();
+  const locale = pathname.split('/')[1];
   return (
-    <Link href={`/components/${component.component_id}`} passHref>
+    <Link href={`/${locale}/components/${component.component_id}`} passHref>
       <Card className="h-full flex flex-col hover:shadow-lg transition-shadow duration-300 ease-in-out cursor-pointer overflow-hidden group">
         <CardHeader className="p-0 relative">
           <div className="aspect-[3/2] w-full overflow-hidden">

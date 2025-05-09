@@ -3,10 +3,10 @@
 import { useState, type ChangeEvent, type FormEvent } from 'react';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
+import { usePathname, useRouter } from 'next/navigation';
 import { Search } from 'lucide-react';
 
 interface SearchBarProps {
-  onSearch: (query: string) => void;
   initialQuery?: string;
 }
 
@@ -14,12 +14,16 @@ export default function SearchBar({ onSearch, initialQuery = '' }: SearchBarProp
   const [query, setQuery] = useState(initialQuery);
 
   const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
-    setQuery(event.target.value);
+ setQuery(event.target.value);
   };
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    onSearch(query);
+ const router = useRouter();
+ const pathname = usePathname();
+ const locale = pathname.split('/')[1];
+ const url = `/${locale}/search?q=${query}`;
+ router.push(url);
   };
 
   return (

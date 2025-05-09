@@ -10,6 +10,7 @@ import {
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 import { FilterX } from "lucide-react";
+import { usePathname } from "next/navigation";
 
 export interface Filters {
   dynasty: string;
@@ -37,6 +38,9 @@ export default function FilterPanel({
   onResetFilters
 }: FilterPanelProps) {
   const handleSelectChange = (filterName: keyof Filters, value: string) => {
+    const pathname = usePathname();
+    const locale = pathname.split('/')[1];
+    const queryString = new URLSearchParams({...filters, [filterName]: value === 'all' ? '' : value}).toString();
     onFilterChange({ ...filters, [filterName]: value === 'all' ? '' : value });
   };
 
@@ -44,7 +48,7 @@ export default function FilterPanel({
     <div className="p-4 bg-card rounded-lg shadow mb-6">
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 items-end">
         <div>
-          <Label htmlFor="dynasty-filter">朝代</Label>
+          <Label htmlFor="dynasty-filter">Dynasty</Label>
           <Select
             value={filters.dynasty || 'all'}
             onValueChange={(value) => handleSelectChange('dynasty', value)}
@@ -52,7 +56,7 @@ export default function FilterPanel({
             <SelectTrigger id="dynasty-filter">
               <SelectValue placeholder="选择朝代" />
             </SelectTrigger>
-            <SelectContent>
+            <SelectContent className="z-[999]">
               <SelectItem value="all">所有朝代</SelectItem>
               {distinctValues.dynasties.map((dynasty) => (
                 <SelectItem key={dynasty} value={dynasty}>
@@ -63,7 +67,7 @@ export default function FilterPanel({
           </Select>
         </div>
         <div>
-          <Label htmlFor="type-filter">构件类型</Label>
+          <Label htmlFor="type-filter">Component Type</Label>
           <Select
             value={filters.type || 'all'}
             onValueChange={(value) => handleSelectChange('type', value)}
@@ -71,7 +75,7 @@ export default function FilterPanel({
             <SelectTrigger id="type-filter">
               <SelectValue placeholder="选择类型" />
             </SelectTrigger>
-            <SelectContent>
+            <SelectContent className="z-[999]">
               <SelectItem value="all">所有类型</SelectItem>
               {distinctValues.types.map((type) => (
                 <SelectItem key={type} value={type}>

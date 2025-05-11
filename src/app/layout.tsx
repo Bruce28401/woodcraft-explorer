@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: '江南传统建筑木构件数据库',
-  description: '一个传统中国木构建筑构件数据库。',
+  description: '一个中国传统建筑木构件数据库。',
 };
 
 export default function RootLayout({

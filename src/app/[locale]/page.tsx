@@ -1,22 +1,21 @@
-import ComponentCard from '@/components/component-card';
-import { getComponents } from '@/services/component';
-import { locales } from '../i18n/settings';
+// Removed 'use client'
 
-const Home = async ({ params }: { params: { locale: string } }) => {
-  const components = await getComponents();
-  return (
-    <main className='max-w-screen-2xl mx-auto'>
-      <section className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-4'>
-        {components.map((component) => (
-          <ComponentCard key={component.component_id} component={component} />
-        ))}
-      </section>
-    </main>
-  );
-};
+import HomePageContent from '@/components/home-page-content';
+import { locales } from '@/app/i18n/settings';
 
-export function generateStaticParams() {
+// This function needs to be defined outside the client component
+// or be static if it's intended for generateStaticParams.
+// For client-side rendering, this component becomes the default export.
+export default function Home({ params }: { params: { locale: string } }) {
+  // The actual rendering is now handled by HomePageContent
+  return <HomePageContent />;
+}
+
+
+// generateStaticParams should remain if you want to pre-render 
+// the basic shell for each locale.
+export async function generateStaticParams() {
+  // const languages = await getAvailableLocales(); // Example if locales were dynamic
   return locales.map((locale) => ({ locale }));
 }
 
-export default Home;

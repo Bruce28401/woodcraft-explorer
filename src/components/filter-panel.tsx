@@ -48,7 +48,7 @@ export default function FilterPanel({
     <div className="p-4 bg-card rounded-lg shadow mb-6">
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 items-end">
         <div>
-          <Label htmlFor="dynasty-filter">Dynasty</Label>
+          <Label htmlFor="dynasty-filter">朝代</Label>
           <Select
             value={filters.dynasty || 'all'}
             onValueChange={(value) => handleSelectChange('dynasty', value)}
@@ -67,7 +67,7 @@ export default function FilterPanel({
           </Select>
         </div>
         <div>
-          <Label htmlFor="type-filter">Component Type</Label>
+          <Label htmlFor="type-filter">类型</Label>
           <Select
             value={filters.type || 'all'}
             onValueChange={(value) => handleSelectChange('type', value)}
